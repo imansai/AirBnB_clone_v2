@@ -25,7 +25,7 @@ printf %s "server {
     }
 
     location /redirect_me {
-        return 301 http://mydomainname.tech/hbnb_static;
+        return 301 http://imancodes.tech/hbnb_static;
     }
 
     error_page 404 /404.html;
