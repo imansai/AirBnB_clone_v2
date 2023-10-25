@@ -5,9 +5,11 @@ Routes:
     /hbnb: Displays 'HBNB'.
     /c/<text>: Displays 'C' followed by the value of <text>.
     /python/(<text>): Displays 'Python' followed by the value of <text>.
+    /number/<n>: Displays 'n is a number' only if <n> is an integer.
 Listening on 0.0.0.0, port 5000.
 """
 from flask import Flask
+from flask import abort
 
 app = Flask(__name__)
 
@@ -33,6 +35,11 @@ def c(text):
 def python(text="is cool"):
     text = text.replace("_", " ")
     return "Python {}".format(text)
+
+
+@app.route("/number/<int:n>", strict_slashes=False)
+def number(n):
+    return "{} is a number".format(n)
 
 
 if __name__ == "__main__":
